@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <a href="#">
+                    <img id="logo_img" src="assets/images/logo.jpg" alt="Hospital Logo">
+                </a>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Search Patients..." id="search_box" oninput="searchPatients()">
+            </div>
+            <div class="nav">
+                <a href="dashboards/patient_dashboard.html">Patient Dashboard</a>
+                <a href="dashboards/doctor_dashboard.html">Doctor Dashboard</a>
+            </div>
+        </header>
+
+        <!-- Body Content -->
+        <main class="body_content">
+            <!-- Controls -->
+            <div class="controls">
+                <button id="add_patient_btn" onclick="toggleForm()">Add New Patient</button>
+                <button onclick="clearAllPatients()">Delete All Patients</button>
+                <div class="sorting_controls">
+                    <label for="sort_criteria">Sort By:</label>
+                    <select id="sort_criteria" onchange="sortPatients()">
+                        <option value="name">Name</option>
+                        <option value="age">Age</option>
+                        <option value="gender">Gender</option>
+                    </select>
+                    <label for="sort_order">Order:</label>
+                    <select id="sort_order" onchange="sortPatients()">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Patient Log -->
+            <div id="patient_log"></div>
+        </main>
+
+        <!-- Patient Form -->
+        <div id="patient_form" class="form_popup">
+            <h3>Add New Patient</h3>
+            <label>Name:</label><input type="text" id="Name">
+            <label>Age:</label><input type="number" id="Age">
+            <label>Gender:</label>
+            <select id="Gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+            <label>Phone Number:</label><input type="text" id="Phone_Number">
+            <label>Description:</label><textarea id="Description"></textarea>
+            <button onclick="addPatient()">Submit</button>
+            <button onclick="toggleForm()">Cancel</button>
+        </div>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
